@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>55-dars. Bootstrap. container va boshqa umumiy masalalar</title>
+  <title>Chopmas pizza</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@400;700&display=swap" rel="stylesheet">
@@ -11,7 +11,141 @@
 </head>
 <body>
   
- 
+  
+  <div class="container">
+    
+    <!-- <p class="h1 text-center text-danger">
+      Bu pitsani pishirgancha ko'zlarim og'rib , qo'llarim kuyib ketti iltimos mehnatni qadrlanglar !!!
+    </p> -->
+    
+    
+    <h1 class="h1 text-center">
+      Pitsa pishiramiz
+    </h1>
+    
+    <form class="info-form form-group d-flex align-items-center flex-column justify-content-center" action="https://echo.htmlacademy.ru" method="POST">
+      
+      <select class="breadSelect custom-select w-50 mx-auto " name="bread">
+        
+        <option disabled>Pitsa nonining qalinligi</option>
+        <option value="Ingichka">Ingichka</option>
+        <option value="Qalin">Qalin</option>
+        <option value="O'rtacha">O'rtacha</option>
+        <option value="Bo'lka non">Bo'lka non</option>
+        
+      </select>
+      
+      
+      <div class="d-flex flex-column">
+        <p class="h3 my-3">Pitsaning ustiga joylanadigan narsalar turlari</p>
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="Mol go'shti" id="bull">
+          <label class="form-check-label" for="bull">
+            Mol go'shti
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="Tovuq go'shti" id="chicken">
+          <label class="form-check-label" for="chicken">
+            Tovuq go'shti
+          </label>
+        </div>
+        
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="Kurka go'shti" id="turkey">
+          <label class="form-check-label" for="turkey">
+            Kurka go'shti
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="halol kolbasa" id="halal">
+          <label class="form-check-label" for="halal">
+            Halol kolbasa
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="Qo'ziqorin" id="mushroom">
+          <label class="form-check-label" for="mushroom">
+            Qo'ziqorin
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="Ko'katlar" id="greens">
+          <label class="form-check-label" for="greens">
+            Ko'katlar
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="Pomidor" id="tomato">
+          <label class="form-check-label" for="tomato">
+            Pomidor
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="Bodring" id="cucumber">
+          <label class="form-check-label" for="cucumber">
+            Bodring
+          </label>
+        </div>
+        
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="Zaytun" id="olive">
+          <label class="form-check-label" for="olive">
+            Zaytun
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="2 hissa Pishloq" id="cheese">
+          <label class="form-check-label" for="cheese">
+            2 hissa Pishloq
+          </label>
+        </div>
+      </div>
+      
+      <div class="d-flex flex-column">
+        <p class="h3 my-3">Pitsaning ustiga joylanadigan narsalar turlari</p>
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="Achchiq" id="achchiq">
+          <label class="form-check-label" for="achchiq">
+            Achchiq
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <input class="form-check-input inputCheckbox" type="checkbox" value="Chetida sosiskalari bor" id="Sosages">
+          <label class="form-check-label" for="Sosages">
+            Chetida sosiskalari bor
+          </label>
+        </div>
+      </div>
+      
+    </form>
+    
+    
+    <div class=" d-flex mx-auto justify-content-center w-25 align-items-center text-center">
+      <p class="text-info mb-0 mr-4">Pitsa Turi </p>
+      <div class="pizzaType text-center"></div>
+    </div>
+    
+    <div class=" d-flex flex-column mx-auto justify-content-center w-25 align-items-center text-center">
+      <p class="text-info mb-0 ">Ustiga qo'yiladiganlar  </p>
+      <div class="pizzaTopDecoration text-center"></div>
+    </div>
+    
+  </div>
+  
+  
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/scripts.js"></script>
