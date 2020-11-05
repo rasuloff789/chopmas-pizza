@@ -40,9 +40,67 @@ elInfoForm.addEventListener('change' , function(evt){
     }
   }
 })
+var resultBread = document.querySelector('.resultBread');
+var resultBreadArray = [];
+var secondBreadSelect = document.querySelector('.secondBreadSelect');
+var breadsTypes = ['Ingichka' , 'Qalin' , `O'rtacha` , `Bo'lka non`] ; 
+var inputsArray = ['Mol_gushti' , 'Tovuq_gushti' , 'Kurka_gushti' , 'Halol_kolbasa' , 'Gribok' , 'Greens'  ,'Pomidor' , 'Bodring' , 'Zaytun' , 'Addings' ];
+var inputBox = document.querySelector('.inputBox');
+var resultAddingTop = document.querySelector('.resultAddingTop');
+var resultAddingArray = [];
+//bread
+
+for(i=1; i<= breadsTypes.length ; i++){
+  var newBreadOption =  document.createElement('option');
+  newBreadOption.textContent = breadsTypes[ i - 1 ];
+  newBreadOption.value = breadsTypes[ i - 1 ];
+  secondBreadSelect.append(newBreadOption) ; 
+}
+secondBreadSelect.addEventListener('change' , function(){
+  resultBread.innerHTML = "";
+  resultsArray = [];
+  var newBreadResult =  document.createElement('p');
+  newBreadResult.classList.add('mb-0')
+  resultsArray.push(secondBreadSelect.value);
+  newBreadResult.textContent = resultsArray;
+  resultBread.append(newBreadResult);
+})
+
+//bread
 
 
 
-
+for(i = 0 ; i < inputsArray.length ; i++){
+  var newBoxForCheckbox =  document.createElement('div');
+  newBoxForCheckbox.classList.add('form-check');
+  inputBox.append(newBoxForCheckbox);
+  var newInputForCheckbox =  document.createElement('input');
+  newInputForCheckbox.setAttribute('type' , "checkbox")  ; 
+  newInputForCheckbox.id = inputsArray[i];
+  newInputForCheckbox.value = inputsArray[i] ;
+  newInputForCheckbox.classList.add('form-check-input');
+  newBoxForCheckbox.appendChild(newInputForCheckbox);
+  var newLabelForCheckbox =  document.createElement('label');
+  newLabelForCheckbox.setAttribute('for' , inputsArray[i]);
+  newLabelForCheckbox.textContent = inputsArray[i] ;
+  newBoxForCheckbox.appendChild(newLabelForCheckbox);
+  
+  
+  newInputForCheckbox.addEventListener('change' , function(){
+    resultAddingTop.innerHTML = "";
+    if (this.checked){
+      resultAddingArray.push(this.value);
+      var newResultAdding = document.createElement('p');
+      newResultAdding.textContent = resultAddingArray.join(' , ');
+      resultAddingTop.appendChild(newResultAdding);
+    }else{
+      resultAddingArray.pop(this.value);
+      var newResultAdding = document.createElement('p');
+      newResultAdding.textContent = resultAddingArray.join(' , ');
+      resultAddingTop.appendChild(newResultAdding);
+    }
+  })
+  
+}
 
 
