@@ -40,6 +40,8 @@ elInfoForm.addEventListener('change' , function(evt){
     }
   }
 })
+
+
 var resultBread = document.querySelector('.resultBread');
 var resultBreadArray = [];
 var secondBreadSelect = document.querySelector('.secondBreadSelect');
@@ -49,7 +51,6 @@ var inputBox = document.querySelector('.inputBox');
 var resultAddingTop = document.querySelector('.resultAddingTop');
 var resultAddingArray = [];
 //bread
-
 for(i=1; i<= breadsTypes.length ; i++){
   var newBreadOption =  document.createElement('option');
   newBreadOption.textContent = breadsTypes[ i - 1 ];
@@ -65,11 +66,7 @@ secondBreadSelect.addEventListener('change' , function(){
   newBreadResult.textContent = resultsArray;
   resultBread.append(newBreadResult);
 })
-
 //bread
-
-
-
 for(i = 0 ; i < inputsArray.length ; i++){
   var newBoxForCheckbox =  document.createElement('div');
   newBoxForCheckbox.classList.add('form-check');
@@ -84,8 +81,6 @@ for(i = 0 ; i < inputsArray.length ; i++){
   newLabelForCheckbox.setAttribute('for' , inputsArray[i]);
   newLabelForCheckbox.textContent = inputsArray[i] ;
   newBoxForCheckbox.appendChild(newLabelForCheckbox);
-  
-  
   newInputForCheckbox.addEventListener('change' , function(){
     resultAddingTop.innerHTML = "";
     if (this.checked){
@@ -100,7 +95,6 @@ for(i = 0 ; i < inputsArray.length ; i++){
       resultAddingTop.appendChild(newResultAdding);
     }
   })
-  
 }
 
 
