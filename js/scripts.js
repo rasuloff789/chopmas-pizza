@@ -41,55 +41,96 @@ elInfoForm.addEventListener('change' , function(evt){
   }
 })
 
-
+//ustoz aytgan usullari bo'yicha
+//elementlarni tanlab oldim
 var resultBread = document.querySelector('.resultBread');
 var resultBreadArray = [];
 var secondBreadSelect = document.querySelector('.secondBreadSelect');
+//nonning tiplari ingichka ,qalin ,hokazo ...
 var breadsTypes = ['Ingichka' , 'Qalin' , `O'rtacha` , `Bo'lka non`] ; 
-var inputsArray = ['Mol_gushti' , 'Tovuq_gushti' , 'Kurka_gushti' , 'Halol_kolbasa' , 'Gribok' , 'Greens'  ,'Pomidor' , 'Bodring' , 'Zaytun' , 'Addings' ];
+
+// input typr checkboxlarning arrayi
+
+var inputsArray = [`Mol go'shti` , `Tovuq go'shti` , `Kurka go'shti` , `Halol kolbasa` , `Qo'ziqorin` , `Ko'katlar`  ,`Pomidor` , `Bodring` , `Zaytun` , `Qo'shimchalar` ];
 var inputBox = document.querySelector('.inputBox');
 var resultAddingTop = document.querySelector('.resultAddingTop');
+
+// inputlarning bo'sh yani natijalar solinadigan arryi
+
 var resultAddingArray = [];
 //bread
+
+//non arrayiga mos ravishda elementlar yaratib olib ularni htmlga create qilamiz
 for(i=1; i<= breadsTypes.length ; i++){
+  //create new option
   var newBreadOption =  document.createElement('option');
+  //option textcontent
   newBreadOption.textContent = breadsTypes[ i - 1 ];
+  //option value
   newBreadOption.value = breadsTypes[ i - 1 ];
+  // append option to select
   secondBreadSelect.append(newBreadOption) ; 
 }
+// select addEventListener 
 secondBreadSelect.addEventListener('change' , function(){
+  // result breadtype innerhtml to ""
   resultBread.innerHTML = "";
+  // resultarray to empty
   resultsArray = [];
+  // create new result
   var newBreadResult =  document.createElement('p');
-  newBreadResult.classList.add('mb-0')
+  // classlist add mb-0
+  newBreadResult.classList.add('mb-0');
+  // push value to result bread's array
   resultsArray.push(secondBreadSelect.value);
+  // resulttextcontent to resultsArray
   newBreadResult.textContent = resultsArray;
+  // append to result bread 
   resultBread.append(newBreadResult);
 })
 //bread
+
+//for bilan inputlarni yaratib oldik
 for(i = 0 ; i < inputsArray.length ; i++){
+  // create div classname formcheck 
   var newBoxForCheckbox =  document.createElement('div');
   newBoxForCheckbox.classList.add('form-check');
+  // append to inputBox
   inputBox.append(newBoxForCheckbox);
-  var newInputForCheckbox =  document.createElement('input');
-  newInputForCheckbox.setAttribute('type' , "checkbox")  ; 
-  newInputForCheckbox.id = inputsArray[i];
-  newInputForCheckbox.value = inputsArray[i] ;
-  newInputForCheckbox.classList.add('form-check-input');
-  newBoxForCheckbox.appendChild(newInputForCheckbox);
+  // create label newLabelForCheckbox
   var newLabelForCheckbox =  document.createElement('label');
-  newLabelForCheckbox.setAttribute('for' , inputsArray[i]);
+  // set textcontent classlist and append to div
   newLabelForCheckbox.textContent = inputsArray[i] ;
+  // newLabelForCheckbox.setAttribute('for' , inputsArray[i]);
+  newLabelForCheckbox.classList.add('mx-3' , 'd-flex' , 'align-items-center' );
   newBoxForCheckbox.appendChild(newLabelForCheckbox);
+  // create input type checkbox and set classlist value and append to label
+  var newInputForCheckbox =  document.createElement('input');
+  
+  newInputForCheckbox.setAttribute('type' , "checkbox")  ;
+  newInputForCheckbox.classList.add('mx-2' , 'order-back');
+  newInputForCheckbox.value = inputsArray[i] ;
+  
+  newLabelForCheckbox.appendChild(newInputForCheckbox);
+  // inputga quloq solamiz
   newInputForCheckbox.addEventListener('change' , function(){
+    // result htmlni tozalaymiz
     resultAddingTop.innerHTML = "";
-    if (this.checked){
-      resultAddingArray.push(this.value);
+    // if bn ishlaymiz
+    if (resultAddingArray.includes(this.value)){
+      // bosilgan checkboxni indexini aniqlaymiz
+      var checkboxIndex = resultAddingArray.indexOf(this.value);
+      // ro'yhatdan olib tashlaymiz
+      resultAddingArray.splice(checkboxIndex , 1);
+      // createElement p qilamiz
       var newResultAdding = document.createElement('p');
+      // textContent ini tog'irlaymiz
       newResultAdding.textContent = resultAddingArray.join(' , ');
+      // append qilamiz
       resultAddingTop.appendChild(newResultAdding);
     }else{
-      resultAddingArray.pop(this.value);
+      // aks holda ro'yhatga qo'shib tepadagi holatni takrorlaymiz
+      resultAddingArray.push(this.value);
       var newResultAdding = document.createElement('p');
       newResultAdding.textContent = resultAddingArray.join(' , ');
       resultAddingTop.appendChild(newResultAdding);
